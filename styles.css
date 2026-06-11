@@ -1,0 +1,782 @@
+
+.my-header {
+    padding: 10px;
+    border-radius: 5px;
+    color: #41406D;
+    font-weight: bold;
+}
+
+.my-icon {
+    font-size: 24px;
+    color: #007bff;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.my-text {
+    font-size: 20px;
+    color: #333;
+}
+
+.sub-title p {
+    margin-bottom: 0 !important;
+}
+
+.blockquote-footer {
+    font-style: italic;
+    color: #6c757d;
+}
+
+.row+.row+.row{
+    background-color: #E7F3FE;
+    color : #4485B1;
+    font-weight: 500;
+    justify-content: center;
+    display: flex;
+    align-items: center;  
+    justify-content: flex-start;
+    padding: 0 20px;
+}
+
+.dataTables_wrapper .row:first-of-type {
+    background-color: #F6F5F5;
+    height: 50px;
+    justify-content: center;
+    display: flex;
+    align-items: center; 
+    justify-content: flex-start;
+    padding: 0 20px;
+}
+
+.dataTables_info {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+
+.small td{
+    background-color: #5B90CD !important;
+    color: #FFFCFC !important;
+    font-weight: 500 !important;   
+    font-size: 16px;
+}
+
+.btn-primary:nth-of-type(1){
+    border: none;
+    font-weight: bold;
+}
+
+.pagination {
+    --bs-pagination-padding-x: 0.75rem;
+    --bs-pagination-padding-y: 0.15rem;
+    --bs-pagination-font-size: 1rem;
+    --bs-pagination-color: var(--bs-link-color);
+    --bs-pagination-bg: var(--bs-body-bg);
+    --bs-pagination-border-width: var(--bs-border-width);
+    --bs-pagination-border-color: var(--bs-border-color);
+    --bs-pagination-border-radius: var(--bs-border-radius);
+    --bs-pagination-hover-color: var(--bs-link-hover-color);
+    --bs-pagination-hover-bg: var(--bs-tertiary-bg);
+    --bs-pagination-hover-border-color: var(--bs-border-color);
+    --bs-pagination-focus-color: var(--bs-link-hover-color);
+    --bs-pagination-focus-bg: var(--bs-secondary-bg);
+    --bs-pagination-focus-box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    --bs-pagination-active-color: #fff ;
+    --bs-pagination-active-bg: #5B90CD !important;
+    --bs-pagination-active-border-color: #0d6efd;
+    --bs-pagination-disabled-color: #4485B1;
+    --bs-pagination-disabled-bg: white !important;
+    --bs-pagination-disabled-border-color: var(--bs-border-color);
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+}
+
+/* ============================================================
+   GLOBAL — berlaku di semua ukuran layar
+   ============================================================ */
+
+/* Form .horizontal.filter-horizontal (halaman entri data): cegah field
+   yang wrap ke baris baru saling tumpang-tindih — layout block + margin. */
+.horizontal.filter-horizontal {
+    align-items: flex-start !important;
+}
+
+/* Wrapper .section dengan inline height tetap: paksa tinggi menyesuaikan
+   konten agar tidak meluber/menimpa .section berikutnya. */
+.section[style*="height"],
+.horizontal[style*="height"] {
+    height: auto !important;
+    min-height: unset !important;
+}
+
+.horizontal.filter-horizontal > .form-group,
+.horizontal.filter-horizontal > .form-group1 {
+    display: block;
+    width: 100% !important;
+    box-sizing: border-box;
+    margin-top: 4px;
+    margin-left: 0 !important;
+    /* Jarak kiri-kanan agar konsisten dengan field lain (mis. "Bidang") */
+    padding-left: 30px;
+    padding-right: 30px;
+    /* padding-bottom (bukan margin-bottom) agar tidak collapse dengan
+       margin negatif elemen anak terakhir, mis. <p style="margin-top:-15px"> */
+    padding-bottom: 8px;
+}
+
+/* Widget filter ringkas "Bidang"/"Komisi"/tombol "Pilih" (Laporan Realisasi/
+   Rencana Komisi): pulihkan layout flex sejajar bawaannya (desktop saja) —
+   aturan block/width:100% di atas tidak boleh menimpa pola widget ini. */
+.horizontal.filter-horizontal > .form-group1[style*="display: flex"],
+.horizontal.filter-horizontal > .form-group1[style*="display:flex"] {
+    display: flex !important;
+    width: auto !important;
+    box-sizing: content-box;
+    margin-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+}
+
+.horizontal.filter-horizontal > .form-group1[style*="display: flex"] > select,
+.horizontal.filter-horizontal > .form-group1[style*="display:flex"] > select {
+    width: 350px !important;
+    max-width: 350px !important;
+    margin-top: 0;
+}
+
+.horizontal.filter-horizontal > .form-group1[style*="display: flex"] > label,
+.horizontal.filter-horizontal > .form-group1[style*="display:flex"] > label {
+    margin-bottom: 0 !important;
+}
+
+/* Samakan lebar input/select field transaksi ke lebar penuh kolom induk
+   (sebelumnya campuran inline 90%/95%/350px) + jarak label-ke-kotak. */
+.horizontal.filter-horizontal > .form-group > input,
+.horizontal.filter-horizontal > .form-group > select,
+.horizontal.filter-horizontal > .form-group1 > input,
+.horizontal.filter-horizontal > .form-group1 > select {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+    margin-top: 8px;
+}
+
+.horizontal.filter-horizontal > .form-group > label,
+.horizontal.filter-horizontal > .form-group1 > label {
+    display: inline-block;
+    margin-bottom: 6px !important;
+}
+
+/* Samakan jarak label-ke-kotak di SEMUA .horizontal (filter & non-filter),
+   termasuk field di ".horizontal" biasa seperti "Volume"/"Harga Satuan"
+   yang sebelumnya tidak tercakup rule filter-horizontal di atas. */
+.horizontal > .form-group > label,
+.horizontal > .form-group1 > label {
+    display: inline-block;
+    margin-top: 6px !important;
+    margin-bottom: 4px !important;
+}
+
+.horizontal > .form-group > input,
+.horizontal > .form-group > select,
+.horizontal > .form-group1 > input,
+.horizontal > .form-group1 > select {
+    margin-top: 4px !important;
+    margin-bottom: 0 !important;
+}
+
+/* Samakan tinggi & padding seluruh kotak input/select di dalam .horizontal
+   (sebelumnya beberapa <select> memakai inline height berbeda dari <input>). */
+.horizontal > .form-group > input,
+.horizontal > .form-group > select,
+.horizontal > .form-group1 > input,
+.horizontal > .form-group1 > select {
+    height: 38px !important;
+    box-sizing: border-box;
+    padding: 6px 12px;
+}
+
+/* Jarak atas untuk blok .horizontal.filter-horizontal yang menumpuk
+   langsung dengan blok sejenis (mis. "Tanggal Pengajuan" lalu "Akun"),
+   agar hint "mm/dd/yyyy" tidak menempel ke label blok berikutnya. */
+.horizontal.filter-horizontal + .horizontal.filter-horizontal {
+    margin-top: 16px;
+    padding-top: 4px;
+}
+
+/* Hint "mm/dd/yyyy" di bawah input tanggal: netralkan margin negatif
+   bawaannya agar tidak tumpang-tindih, sejajarkan dengan placeholder. */
+.form-group p[style*="color:#838996"],
+.form-group p[style*="color: #838996"] {
+    margin-top: 2px !important;
+    margin-bottom: 4px !important;
+    margin-left: 12px !important;
+    font-size: 12px !important;
+}
+
+/* Hint format Rupiah (disisipkan via js/rupiah-hint.js) — gaya & posisi
+   meniru hint "mm/dd/yyyy" agar konsisten secara visual. */
+.rupiah-hint {
+    margin-left: 12px !important;
+    font-size: 12px !important;
+}
+
+/* Sembunyikan teks komentar PHP yang bocor ke HTML dari inc_f_object.php */
+td > br + text,
+.modal-body > text {
+    display: none;
+}
+
+/* Tombol Detail/Edit/Hapus di tabel: ubah dari bulat kecil (w-50 h-50)
+   menjadi pill-shaped dengan label teks agar lebih jelas & konsisten */
+table .btn.w-50.h-50,
+.btn.w-50.h-50 {
+    width: auto !important;
+    height: auto !important;
+    border-radius: 6px !important;
+    padding: 5px 10px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 4px !important;
+    font-size: 13px !important;
+    white-space: nowrap !important;
+    min-width: 36px !important;
+    min-height: 32px !important;
+}
+
+/* ============================================================
+   MOBILE RESPONSIVE — hanya mengubah tampilan di layar kecil
+   Desktop (>768px) tidak terpengaruh sama sekali
+   ============================================================ */
+@media (max-width: 768px) {
+
+    /* ── BODY & WRAPPER ── */
+    body {
+        overflow-x: hidden !important;
+        font-size: 15px !important;
+    }
+
+    /* Ruang bawah navbar fixed-top */
+    body > div[style*="margin-top"] {
+        margin-top: 70px !important;
+        padding: 10px !important;
+    }
+
+    /* ── NAVBAR ── */
+    .navbar {
+        padding: 8px 12px !important;
+    }
+
+    .navbar-brand {
+        font-size: 16px !important;
+        font-weight: 700 !important;
+    }
+
+    /* Hamburger icon lebih besar agar mudah diklik orang tua */
+    .navbar-toggler {
+        padding: 8px 12px !important;
+        font-size: 18px !important;
+        border-radius: 6px !important;
+    }
+
+    /* Menu mobile terbuka — item besar dan mudah diklik */
+    .navbar-collapse .nav-link {
+        font-size: 16px !important;
+        padding: 12px 16px !important;
+        margin: 0 !important;
+        border-bottom: 1px solid rgba(0,0,0,0.06) !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        min-height: 48px !important;  /* target touch area standar */
+    }
+
+    .navbar-collapse .dropdown-item {
+        font-size: 15px !important;
+        padding: 12px 20px !important;
+        min-height: 48px !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        color: #504F82 !important;
+    }
+
+    .dropdown-menu {
+        margin-left: 0 !important;
+        border: none !important;
+        background-color: #f0f4ff !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+    }
+
+    .dropdown-divider {
+        margin: 2px 0 !important;
+    }
+
+    /* Selector tahun di navbar */
+    #selected_year {
+        font-size: 14px !important;
+        padding: 6px 8px !important;
+        min-height: 40px !important;
+        width: auto !important;
+        max-width: 130px !important;
+    }
+
+    /* ── SECTION CONTAINERS ── */
+    .firstsection,
+    .secondsection,
+    .section,
+    .second {
+        width: 100% !important;
+        height: auto !important;
+        min-height: unset !important;
+        padding: 12px !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    .sub-title {
+        font-size: 16px !important;
+        padding: 10px !important;
+        line-height: 1.4 !important;
+    }
+
+    /* ── LAYOUT HORIZONTAL → VERTICAL ── */
+    .firstsection .horizontal,
+    .section .horizontal,
+    .secondsection .horizontal,
+    .horizontal {
+        flex-direction: column !important;
+        gap: 10px !important;
+        align-items: stretch !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: unset !important;
+    }
+
+    .horizontal .form-group,
+    .horizontal .form-group1,
+    .form-group,
+    .form-group1 {
+        width: 100% !important;
+        height: auto !important;
+        min-height: unset !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        margin-bottom: 12px !important;
+    }
+
+    /* ── INPUT & FORM FIELDS ── */
+    .horizontal input[type="text"],
+    .horizontal input[type="email"],
+    .horizontal input[type="date"],
+    .horizontal input[type="number"],
+    .horizontal input[type="file"],
+    .horizontal textarea,
+    .horizontal select,
+    .filter input[type="number"],
+    .filter input[type="text"],
+    .filter input[type="date"],
+    .filter select,
+    .form-control,
+    .form-select {
+        width: 100% !important;
+        height: 46px !important;
+        font-size: 15px !important;
+        padding: 10px 12px !important;
+        border-radius: 6px !important;
+        box-sizing: border-box !important;
+        margin-bottom: 6px !important;
+    }
+
+    textarea.form-control,
+    .horizontal textarea {
+        height: auto !important;
+        min-height: 90px !important;
+    }
+
+    /* Input dengan lebar inline (mis. width:90%) — paksa lebar penuh di mobile */
+    .horizontal input[type="date"],
+    .form-group input[type="date"],
+    .form-group input[type="number"],
+    .form-group input[type="text"],
+    .form-group input[type="email"] {
+        width: 100% !important;
+    }
+
+    .form-group p[style*="margin-top: -15px"],
+    .form-group p[style*="margin-top:-15px"] {
+        margin-top: 4px !important;
+        margin-left: 0 !important;
+        font-size: 12px !important;
+    }
+
+    .horizontal label,
+    .filter label,
+    .form-label {
+        font-size: 14px !important;
+        margin-bottom: 4px !important;
+        display: block !important;
+        font-weight: 600 !important;
+        color: #334D74 !important;
+    }
+
+    /* ── FILTER AREA (.filter di .second) ── */
+    .second .filter,
+    div.filter {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 8px !important;
+        width: 100% !important;
+    }
+
+    .second .filter > *,
+    div.filter > * {
+        width: 100% !important;
+    }
+
+    /* ── FILTER "PILIH TAHUN" PADA HALAMAN LAPORAN ── */
+    /* Label, <select id="tb_tahun">, dan tombol "Filter" berebut ruang
+       sempit dalam flex-row inline sehingga <select> terjepit kecil.
+       Susun ulang jadi kolom (stack) & lebar penuh khusus layar kecil. */
+    .filter-section > div[style*="width:60%"],
+    .filter-section > div[style*="width: 60%"] {
+        width: 100% !important;
+    }
+
+    .filter-section > div[style*="width:60%"] form,
+    .filter-section > div[style*="width: 60%"] form,
+    .filter-section > div[style*="width:60%"] form > div,
+    .filter-section > div[style*="width: 60%"] form > div {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 8px !important;
+        width: 100% !important;
+    }
+
+    .filter-section > div[style*="width:60%"] select,
+    .filter-section > div[style*="width: 60%"] select,
+    .filter-section > div[style*="width:60%"] form button,
+    .filter-section > div[style*="width: 60%"] form button {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* ── WRAPPER TOMBOL TAMBAH DATA ── */
+    /* <div class="row" style="width:12%"> memotong tombol "Tambah Data"
+       jadi kotak kecil & menyembunyikan teksnya di layar kecil */
+    .row[style*="width:12%"],
+    .row[style*="width: 12%"] {
+        width: 100% !important;
+    }
+
+    /* ── TOMBOL ── */
+    /* Tombol aksi utama (Tambah, Simpan, dll) */
+    .firstsection .button,
+    .secondsection .button,
+    .section .button,
+    .secondsection .button2,
+    .section .button2,
+    .button-add {
+        width: 100% !important;
+        height: 46px !important;
+        padding: 10px 16px !important;
+        border-radius: 8px !important;
+        font-size: 15px !important;
+        font-weight: bold !important;
+        box-sizing: border-box !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin-top: 8px !important;
+    }
+
+    /* Bootstrap btn di dalam filter/second */
+    .second .btn,
+    .filter .btn {
+        min-height: 42px !important;
+        font-size: 14px !important;
+        padding: 8px 14px !important;
+        border-radius: 6px !important;
+    }
+
+    /* Tombol aksi di dalam baris tabel (Edit, Hapus, Validasi) */
+    table .btn,
+    table button {
+        min-height: 36px !important;
+        font-size: 13px !important;
+        padding: 6px 10px !important;
+        white-space: nowrap !important;
+        border-radius: 5px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 4px !important;
+    }
+
+    /* Tombol Validasi Semua / Bulk action */
+    button[name="btn_bulk_validasi"],
+    button[name="btn_bulk_proses"],
+    button[name="btn_bulk_setuju"] {
+        width: 100% !important;
+        min-height: 44px !important;
+        font-size: 14px !important;
+        padding: 10px 16px !important;
+        border-radius: 6px !important;
+    }
+
+    /* Tombol Cetak Excel & PDF */
+    a[href*="xlxCetak"],
+    a[href*="pdfCetak"] {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        min-height: 40px !important;
+        padding: 8px 14px !important;
+        font-size: 13px !important;
+        border-radius: 6px !important;
+        white-space: nowrap !important;
+    }
+
+    /* ── MODAL ── */
+    .modal-dialog {
+        margin: 8px !important;
+        max-width: calc(100vw - 16px) !important;
+    }
+
+    .modal-content {
+        border-radius: 10px !important;
+    }
+
+    .modal-header {
+        padding: 14px 16px !important;
+    }
+
+    .modal-header .blockquote p {
+        font-size: 16px !important;
+        font-weight: 700 !important;
+        margin-bottom: 0 !important;
+    }
+
+    .modal-body {
+        padding: 14px 16px !important;
+        overflow-y: auto !important;
+        max-height: 65vh !important;
+    }
+
+    .modal-body label {
+        font-size: 14px !important;
+        font-weight: 600 !important;
+        margin-bottom: 4px !important;
+        display: block !important;
+        color: #334D74 !important;
+    }
+
+    .modal-body .form-control,
+    .modal-body .form-select,
+    .modal-body input,
+    .modal-body select,
+    .modal-body textarea {
+        font-size: 15px !important;
+        height: 46px !important;
+        padding: 10px 12px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        border-radius: 6px !important;
+    }
+
+    .modal-body textarea {
+        height: auto !important;
+        min-height: 80px !important;
+    }
+
+    .modal-footer {
+        padding: 12px 16px !important;
+        gap: 8px !important;
+        flex-wrap: wrap !important;
+    }
+
+    .modal-footer .btn {
+        flex: 1 !important;
+        min-height: 44px !important;
+        font-size: 15px !important;
+        border-radius: 8px !important;
+    }
+
+    /* ── TABEL ── */
+    .table-responsive {
+        display: block !important;
+        width: 100% !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        border-radius: 6px !important;
+    }
+
+    /* Tabel tanpa pembungkus .table-responsive (mis. form rencana) melebar
+       keluar batas kontainernya — beri scroll horizontal agar tidak meluber. */
+    .secondsection > form,
+    .section > form,
+    .secondsection table.table:not(.table-responsive table),
+    .section table.table:not(.table-responsive table) {
+        display: block !important;
+        width: 100% !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+
+    table.table {
+        width: 100% !important;
+        font-size: 13px !important;
+        min-width: 500px !important; /* scroll horizontal jika perlu */
+    }
+
+    table.table td,
+    table.table th {
+        white-space: nowrap !important;
+        padding: 8px 10px !important;
+        vertical-align: middle !important;
+    }
+
+    table.table th {
+        font-size: 13px !important;
+    }
+
+    .small td {
+        font-size: 13px !important;
+    }
+
+    /* ── DATATABLES WRAPPER ── */
+    .dataTables_wrapper .row:first-of-type {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        height: auto !important;
+        padding: 10px !important;
+        gap: 8px !important;
+    }
+
+    .dataTables_wrapper .dataTables_length,
+    .dataTables_wrapper .dataTables_filter {
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Label "Search:" membungkus input — paksa jadi block agar input
+       tidak melebar ke samping melebihi kotak filter abu-abu */
+    .dataTables_wrapper .dataTables_filter label {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        width: 100% !important;
+        margin: 0 !important;
+        gap: 4px !important;
+    }
+
+    .dataTables_wrapper .dataTables_filter input {
+        width: 100% !important;
+        max-width: 100% !important;
+        font-size: 14px !important;
+        padding: 8px 10px !important;
+        height: 40px !important;
+        border-radius: 6px !important;
+        box-sizing: border-box !important;
+        margin-left: 0 !important;
+    }
+
+    .dataTables_wrapper .dataTables_length select {
+        height: 38px !important;
+        font-size: 14px !important;
+        padding: 4px 8px !important;
+        border-radius: 6px !important;
+    }
+
+    .row + .row + .row {
+        flex-direction: column !important;
+        gap: 8px !important;
+        padding: 10px !important;
+    }
+
+    .dataTables_info {
+        font-size: 13px !important;
+        text-align: center !important;
+        padding: 8px 0 !important;
+    }
+
+    ul.pagination {
+        justify-content: center !important;
+        flex-wrap: wrap !important;
+        margin-top: 8px !important;
+        gap: 4px !important;
+    }
+
+    ul.pagination .page-item .page-link {
+        min-width: 38px !important;
+        min-height: 38px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-size: 14px !important;
+        border-radius: 6px !important;
+    }
+
+    /* ── DASHBOARD CARDS (incHome) ── */
+    .card-Kas,
+    .card-finance {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        margin-bottom: 12px !important;
+    }
+
+    /* Row kartu di beranda */
+    .row.mt-5[style*="gap: 100px"] {
+        gap: 12px !important;
+        padding-left: 0 !important;
+        flex-direction: column !important;
+        height: auto !important;
+        margin-top: 16px !important;
+    }
+
+    .row.mt-5[style*="gap: 100px"] > div {
+        width: 100% !important;
+        min-width: unset !important;
+    }
+
+    .col-md-3.d-flex.flex-column {
+        gap: 12px !important;
+    }
+
+    /* ── GRAFIK / CHART CANVAS ── */
+    canvas {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+    /* ── HORIZONTAL SESSION (ringkasan kas) ── */
+    .secondsection .horizontal-session {
+        flex-direction: column !important;
+        gap: 8px !important;
+        text-align: left !important;
+    }
+}
+
+/* Table vertical alignment fixes */
+table td, table th {
+    vertical-align: middle !important;
+}
+
+/* Add padding to datatables elements for better vertical centering */
+.dataTables_info {
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+}
+
+/* Pagination container alignment */
+.dataTables_paginate {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}

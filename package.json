@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "chart.js": "^4.4.8",
+    "ionicons": "^7.4.0"
+  },
+  "devDependencies": {
+    "@prettier/plugin-php": "^0.25.0",
+    "prettier": "^3.8.3"
+  }
+}

@@ -1,0 +1,17 @@
+# Claude Code
+.claude/
+
+# Dokumentasi internal (tidak dibutuhkan dalam sistem)
+dokumentasi/
+
+# Dependency
+node_modules/
+
+# File upload pengguna
+uploads/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

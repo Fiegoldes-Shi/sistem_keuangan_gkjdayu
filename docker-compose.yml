@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: gkj_web
+    ports:
+      # Membuka port 8000 di Local menuju port 80 milik Apache
+      - "8000:80"
+    volumes:
+      # Melakukan pemetaan langsung (sync) file di direktori lokal dengan web server virtual
+      - ./:/var/www/html
+    environment:
+      # Variabel krusial yang dibaca oleh _function_i/cConnect.php
+      - DB_HOST=db
+      - DB_USERNAME=root
+      - DB_PASSWORD=simaster_rahasia
+      - DB_DATABASE=gkj_dayu
+      - DB_PORT=3306
+    depends_on:
+      - db
+    networks:
+      - gkj_network
+
+  db:
+    # Menggunakan MariaDB karena kinerjanya sangat solid
+    image: mariadb:10.11
+    container_name: gkj_db
+    restart: always
+    environment:
+      # Akun dan skema langsung dibuat otomatis saat database pertama kali nyala
+      - MYSQL_ROOT_PASSWORD=simaster_rahasia
+      - MYSQL_DATABASE=gkj_dayu
+    ports:
+      # Port MariaDB agar bisa dicek dari HeidiSQL / PhpMyAdmin lokal kalau perlu
+      - "3306:3306"
+    volumes:
+      # Tempat menyimpan fisik data agar tidak terhapus ketika container mati
+      - db_data:/var/lib/mysql
+      # FITUR AUTO-IMPORT: docker-entrypoint-initdb.d akan mengeksekusi gkj_dayu.sql
+      # untuk men-setup otomatis tabel dari awal (tanpa harus repot buka phpmyadmin)
+      - ./gkj_dayu.sql:/docker-entrypoint-initdb.d/gkj_dayu.sql
+    networks:
+      - gkj_network
+
+networks:
+  gkj_network:
+    driver: bridge
+
+volumes:
+  # Disk virtual abadi untuk mesin database
+  db_data:
